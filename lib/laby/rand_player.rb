@@ -4,7 +4,7 @@ module Laby
       # Commented as the below version using 'rand' is desireed by client
       #[:left, :up, :right, :down].sample
       directions = [:left, :up, :right, :down]
-      directions[rand(directions.length)]      
+      directions[rand(directions.length)]
     end
   end
 end
