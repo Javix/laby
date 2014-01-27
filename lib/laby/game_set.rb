@@ -5,12 +5,16 @@ module Laby
       @matrix = {}
     end
 
-    def to_s
+    def to_s(players = [])
       File.open(@file_name) do |file|
         file.each_line do |line|
-          puts line
           line.chars.each_with_index do |char, index|
-            @matrix[[file.lineno-1, index]] = Cell.new(char)
+            x, y = index, file.lineno-1
+            players.each_with_index do |player, index|
+              char = index.to_s if player_present?(player, x, y)
+            end
+            print char
+            @matrix[[x, y]] = Cell.new(char)
           end
         end
       end
@@ -31,6 +35,11 @@ module Laby
       finish = @matrix.select { |k, v| v.type.eql?(Cell::TYPES[:finish])}.first
       raise "Finish case not found" unless finish
       finish
+    end
+
+    private
+    def player_present?(player, x, y)
+      player.x == x && player.y == y
     end
 
   end

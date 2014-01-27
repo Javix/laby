@@ -1,2 +1,5 @@
 require 'laby/cell'
 require 'laby/game_set'
+require 'laby/player'
+require 'laby/human_player'
+require 'laby/rand_player'
