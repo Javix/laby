@@ -2,13 +2,24 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'laby'
 
-laby = Laby::GameSet.new('laby.txt')
+file_name = ARGV.first || ''
+raise "Labyrinth file is not found!" unless File.exists?(file_name)
+laby = Laby::GameSet.new(file_name)
 puts "Welcome to the Labyrinth:"
-p1 = Laby::HumanPlayer.new('toto')
-p1.x = 5
-p1.y = 1
 
-p2 = Laby::HumanPlayer.new('yoyo')
-p2.x = 14
-p2.y = 1
-laby.to_s([p1,p2])
+def players
+  players = []
+  players << create_player('toto', 5, 1 )
+	players << create_player('yoyo', 14, 1)  
+  puts "players: #{players.inspect}"
+  players
+end
+
+def create_player(name, x, y)
+	player = Laby::HumanPlayer.new(name)
+  player.x = x
+  player.y = y
+  player
+end
+
+laby.to_s(players)
