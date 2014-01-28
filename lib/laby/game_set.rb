@@ -11,6 +11,7 @@ module Laby
           line.chars.each_with_index do |char, index|
             x, y = index, file.lineno-1
             players.each_with_index do |player, index|
+              break if char == Cell::TYPES[:start]
               char = index.to_s if player_present?(player, x, y)
             end
             print char
