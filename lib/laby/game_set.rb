@@ -2,7 +2,7 @@ module Laby
   class GameSet
     def initialize(file_name)
       @file_name = file_name
-      @matrix = {}
+      init_matrix(@file_name)
     end
 
     def to_s(players = [])      
@@ -36,8 +36,20 @@ module Laby
       raise "Finish case not found" unless finish
       finish.keys.first
     end
-
+    
     private
+    def init_matrix(file_name)
+      @matrix = {}
+      File.open(file_name) do |file|
+        file.each_line do |line|          
+          line.chars.each_with_index do |char, index|
+            @matrix[[file.lineno-1, index]] = Cell.new(char)
+          end
+        end
+      end
+      @matrix
+    end
+    
     def player_present?(player, x, y)
       player.x == x && player.y == y
     end
