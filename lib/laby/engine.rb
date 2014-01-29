@@ -6,11 +6,17 @@ module Laby
     end
 
     def run
-      @players.each do |player|
-        system "clear" unless system "cls"
-        @game_set.to_s(@players)
-        greet_player(player)
-        player.query_next_direction
+      loop do
+        @players.each do |player|
+          system "clear" unless system "cls"
+          @game_set.to_s(@players)
+          greet_player(player)
+          player.query_next_direction(@game_set)
+          if player_wins?(player)
+            puts "Well done! You did it !"
+            exit
+          end
+        end
       end
     end
 
