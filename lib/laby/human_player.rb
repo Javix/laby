@@ -1,7 +1,8 @@
 module Laby
   class HumanPlayer < Player
 
-    def query_next_direction
+    def query_next_direction(game_set)
+      old_x, old_y = x, y
       STDOUT.flush
       input = gets.chomp
       case input
@@ -16,6 +17,13 @@ module Laby
       else
         puts "Unknown direction"
       end
+      self.x, self.y = old_x, old_y unless accessible?(game_set, x, y)
+    end
+
+    private
+    def accessible?(game_set, x, y)
+      cell = game_set.matrix[[x, y]]
+      cell.is_accessible?
     end
 
   end
