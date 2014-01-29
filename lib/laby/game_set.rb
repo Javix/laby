@@ -1,5 +1,7 @@
 module Laby
   class GameSet
+    attr_reader :matrix
+
     def initialize(file_name)
       @file_name = file_name
       init_matrix(file_name)
@@ -10,10 +12,10 @@ module Laby
         line.chars.each_with_index do |char, char_index|
           x, y = char_index, line_index
           players.each_with_index do |player, index|
-            if char == Cell::TYPES[:start] || char == Cell::TYPES[:wall]
+            if char == Cell::TYPES[:start]
               break
             end
-            char = index.to_s if player_present?(player, x, y)
+            char = index.to_s if cell_occupied_by?(player, x, y)
           end
           print char
           @matrix[[x, y]] = Cell.new(char)
@@ -51,7 +53,8 @@ module Laby
       @matrix
     end
 
-    def player_present?(player, x, y)
+    # Sends true if a player occupies the cell at x, y
+    def cell_occupied_by?(player, x, y)
       player.x == x && player.y == y
     end
 
