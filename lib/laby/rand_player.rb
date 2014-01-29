@@ -1,9 +1,9 @@
 module Laby
   class RandPlayer < Player
-    def query_next_direction(game_set)
+    def query_next_direction
       # Commented as the below version using 'rand' is desireed by client
       #[:left, :up, :right, :down].sample
-      directions = [:left, :up, :right, :down]
+      directions = DIRECTIONS.keys
       directions[rand(directions.length)]
     end
   end

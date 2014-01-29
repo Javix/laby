@@ -3,17 +3,17 @@ module Laby
     def self.get_x(coords)
       coords.first
     end
-    
+
     def self.get_y(coords)
       coords.last
     end
-    
+
     def self.create_players()
       players = []
       players << create_player('toto')
-      players << create_player('yoyo')      
+      players << create_player('yoyo')
       players
-    end    
+    end
 
     def self.set_on_start(players, start_coordinates)
       players.each do |player|
@@ -21,10 +21,10 @@ module Laby
         player.y = get_y(start_coordinates)
       end
     end
-    
+
     private
     def self.create_player(name)
-      player = Laby::HumanPlayer.new(name)  
+      player = Laby::HumanPlayer.new(name)
       player
     end
   end

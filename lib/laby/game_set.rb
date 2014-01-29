@@ -2,21 +2,25 @@ module Laby
   class GameSet
     def initialize(file_name)
       @file_name = file_name
-      init_matrix(@file_name)
+      init_matrix(file_name)
     end
 
     def to_s(players = [])
-      File.readlines(@file_name).each_with_index do |line, line_index|
+      File.open(@file_name).readlines.each_with_index do |line, line_index|
         line.chars.each_with_index do |char, char_index|
           x, y = char_index, line_index
           players.each_with_index do |player, index|
-            break if char == Cell::TYPES[:start]
+            if char == Cell::TYPES[:start] || char == Cell::TYPES[:wall]
+              break
+            end
             char = index.to_s if player_present?(player, x, y)
           end
           print char
           @matrix[[x, y]] = Cell.new(char)
         end
       end
+      #Adding an empty line after printing the labyrinth
+      puts
     end
 
     def is_accessible?(x, y)
@@ -39,7 +43,7 @@ module Laby
     private
     def init_matrix(file_name)
       @matrix = {}
-      File.readlines(file_name).each_with_index do |line, line_index|
+      File.open(file_name).readlines.each_with_index do |line, line_index|
         line.chars.each_with_index do |char, char_index|
           @matrix[[line_index, char_index]] = Cell.new(char)
         end
