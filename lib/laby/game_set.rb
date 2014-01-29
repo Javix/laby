@@ -5,18 +5,16 @@ module Laby
       init_matrix(@file_name)
     end
 
-    def to_s(players = [])      
-      File.open(@file_name) do |file|
-        file.each_line do |line|
-          line.chars.each_with_index do |char, index|
-            x, y = index, file.lineno-1
-            players.each_with_index do |player, index|
-              break if char == Cell::TYPES[:start]
-              char = index.to_s if player_present?(player, x, y)
-            end
-            print char
-            @matrix[[x, y]] = Cell.new(char)
+    def to_s(players = [])
+      File.readlines(@file_name).each_with_index do |line, line_index|
+        line.chars.each_with_index do |char, char_index|
+          x, y = char_index, line_index
+          players.each_with_index do |player, index|
+            break if char == Cell::TYPES[:start]
+            char = index.to_s if player_present?(player, x, y)
           end
+          print char
+          @matrix[[x, y]] = Cell.new(char)
         end
       end
     end
@@ -37,23 +35,21 @@ module Laby
       raise "Finish case not found" unless finish
       finish.keys.first
     end
-    
+
     private
     def init_matrix(file_name)
       @matrix = {}
-      File.open(file_name) do |file|
-        file.each_line do |line|          
-          line.chars.each_with_index do |char, index|
-            @matrix[[file.lineno-1, index]] = Cell.new(char)
-          end
+      File.readlines(file_name).each_with_index do |line, line_index|
+        line.chars.each_with_index do |char, char_index|
+          @matrix[[line_index, char_index]] = Cell.new(char)
         end
       end
       @matrix
     end
-    
+
     def player_present?(player, x, y)
       player.x == x && player.y == y
     end
-    
+
   end
 end
