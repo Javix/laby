@@ -9,20 +9,20 @@ module Laby
       finish: 'F'
     }
 
-    def initialize(type = :empty)
+    def initialize(type = TYPES[:empty])
       @type = type
     end
 
     def is_accessible?
-      type != :wall
+      type != TYPES[:wall]
     end
 
     def is_start?
-      type == :start
+      type == TYPES[:start]
     end
 
     def is_finish?
-      type == :finish
+      type == TYPES[:finish]
     end
 
     def to_s
