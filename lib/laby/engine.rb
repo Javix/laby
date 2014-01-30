@@ -22,8 +22,7 @@ module Laby
 
     private
     def player_wins?(player)
-      @game_set.get_finish_coordinates.first == player.x &&
-        @game_set.get_finish_coordinates.last == player.y
+      [player.x, player.y] == @game_set.get_finish_coordinates
     end
 
     def greet_player(player)
