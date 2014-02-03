@@ -1,7 +1,7 @@
 
-# Labyrinth console application  
+# Labyrinth console application
 
-The 2D maze game can be played with one or more players. The first player to get to the exit wins. 
+The 2D maze game can be played with one or more players. The first player to get to the exit wins.
 
 The maze is read from a text file to put in the project root (see `laby.txt`  file as an example). The maze is composed of cells. Every cell has its coordinates (0,0) being defined in the upper left corner. The start cell is marked with letter 'S', the finish (exit) cell is marked with the 'F' one. The walls are marked with the dash '#' sign.
 
@@ -15,14 +15,15 @@ The game is played from the command line in turn, and the maze is refreched afte
 **k** - DOWN
 
 ## Available players
-* Human player
-* RandomPlayer
+
+* Human Player
+* Random Player
 
 ## Human Player
 
 The player is moving  with the heklp of human which will define the best strategy and direction to move to be the first to get the finish cell.
 
-## RandomPlayer
+## Random Player
 
 The player moves absolutely in a random way.
 
