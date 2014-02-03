@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-Labyrinth+console+application">Labyrinth console application</h1>
+
+<p>The 2D maze game can be played with one or more players. The first player
+to get to the exit wins.</p>
+
+<p>The maze is read from a text file to put in the project root (see
+<code>laby.txt</code> file as an example). The maze is composed of cells.
+Every cell has its coordinates (0,0) being defined in the upper left
+corner. The start cell is marked with letter &#39;S&#39;, the finish (exit)
+cell is marked with the &#39;F&#39; one. The walls are marked with the dash
+&#39;#&#39; sign.</p>
+
+<p>The game is played from the command line in turn, and the maze is refreched
+after every go and displays each player&#39;s position. A player&#39;s
+position is indexed starting from 0 (zero) and so on. If a player tries to
+move against a wall, he will stay where he is and keep his previous
+coordinates.</p>
+
+<h2 id="label-Available+keyboard+keys+to+move">Available keyboard keys to move</h2>
+
+<p><strong>j</strong> - LEFT <strong>i</strong> - UP <strong>l</strong> -
+RIGHT (downcased L) <strong>k</strong> - DOWN</p>
+
+<h2 id="label-Available+players">Available players</h2>
+<ul><li>
+<p>Human player</p>
+</li><li>
+<p>RandomPlayer</p>
+</li></ul>
+
+<h2 id="label-Human+Player">Human Player</h2>
+
+<p>The player is moving with the heklp of human which will define the best
+strategy and direction to move to be the first to get the finish cell.</p>
+
+<h2 id="label-RandomPlayer">RandomPlayer</h2>
+
+<p>The player moves absolutely in a random way.</p>
+
+<p>Actually players (their type and names) are hard-coded in the
+Laby::Support.create_player method.</p>
+
+<p>To start up the maze, just run from the project root: <code> ruby
+bin/play.rb {maze_text_file} </code></p>
+</div></div>
+
+    <div id="footer">
+  Generated on Mon Feb  3 13:46:23 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.0.0).
+</div>
+
+  </body>
+</html>

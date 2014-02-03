@@ -1,6 +1,12 @@
 module Laby
+  # Public: Human Player
   class HumanPlayer < Player
 
+    # Public: Moves the player in one of the directions.
+    #
+    # game_set - GameSet object.
+    # Updates a player's coordinates depending on the provided direction
+    # caught from the user keyboard input.
     def query_next_direction(game_set)
       old_x, old_y = x, y
       STDOUT.flush

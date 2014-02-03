@@ -1,10 +1,20 @@
 module Laby
+  # Public: Engine of the application.
   class Engine
+
+    # Public: Initialize the Engine.
+    #
+    # game_set  - A GameSet object.
+    # player    - An array of Player objects.
     def initialize(game_set, players = [])
       @game_set = game_set
       @players = players
     end
 
+    # Public: Runs the maze application.
+    #
+    # It is looping over all the participating players inviting each of them
+    # to move their player.
     def run
       loop do
         @players.each do |player|
