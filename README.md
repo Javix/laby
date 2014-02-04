@@ -9,10 +9,10 @@ The game is played from the command line in turn, and the maze is refreched afte
 
 ## Available keyboard keys to move
 
-**j** - LEFT
-**i** - UP
-**l** - RIGHT (downcased L)
-**k** - DOWN
+- **j** - LEFT
+- **i** - UP
+- **l** - RIGHT (downcased L)
+- **k** - DOWN
 
 ## Available players
 * Human player
@@ -20,7 +20,7 @@ The game is played from the command line in turn, and the maze is refreched afte
 
 ## Human Player
 
-The player is moving  with the heklp of human which will define the best strategy and direction to move to be the first to get the finish cell.
+The player is moving  with the help of human which will define the best strategy and direction to move to be the first to get the finish cell.
 
 ## RandomPlayer
 
