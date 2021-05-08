@@ -15,7 +15,7 @@ require 'laby'
 # And displays the created maze with a greeting for the first player
 
 file_name = ARGV.pop || ''
-raise "Labyrinth file #{file_name}is not found!" unless File.exists?(file_name)
+raise "Labyrinth file #{file_name} is not found! \n You can use 'laby.txt' as example available in the code source" unless File.exists?(file_name)
 game_set = Laby::GameSet.new(file_name)
 puts "Welcome to the Labyrinth"
 

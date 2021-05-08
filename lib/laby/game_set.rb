@@ -89,6 +89,5 @@ module Laby
     def cell_occupied_by?(player, x, y)
       player.x == x && player.y == y
     end
-
   end
 end
