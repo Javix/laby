@@ -32,6 +32,6 @@ Actually players (their type and names) are hard-coded in the Laby::Support.crea
 
 To start up the maze, just run from the project root:
 
-```
+```ruby
 ruby bin/play.rb {maze_text_file}
 ```
